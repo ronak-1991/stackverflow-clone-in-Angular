@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { mergeMap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class QuestionService {
 baseurl=environment.baseurl
 question=environment.question
+answer=environment.answer
   constructor(private http:HttpClient) { }
 
   postQuestion(body:any){
@@ -27,5 +28,30 @@ question=environment.question
     }
   }
 
+  getAnswer(id:any){
+    try {
+      return this.http.get(this.baseurl + this.question +  id + this.answer);
+    } catch (error:any) {
+      return throwError(() => new Error(error));
+    }
+  }
+
+  postAnswer(Id: number,data:any){
+    try {
+          return this.http.get(this.baseurl+this.question +"/"+Id).pipe(
+            mergeMap((customer: any) => {
+              const currentItemArray = customer.answers;
+              currentItemArray.push(data);
+    
+              return this.http.patch(this.baseurl+this.question+"/"+Id, {
+                answers: currentItemArray
+              });
+            })
+          );
+    } catch (error:any) {
+      return throwError(() => new Error(error))
+    }
+
+  }
 
 }

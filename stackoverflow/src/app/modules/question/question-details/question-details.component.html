@@ -1,1 +1,34 @@
-<p>question-details works!</p>
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{question?.title}}</h5>
+      <p class="card-text">{{question?.description}}</p>
+   
+    </div>
+  </div>
+
+  <ng-template *ngIf="answer.length>0">
+
+    <h3>Answers</h3>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{question?.title}}</h5>
+          <p class="card-text">{{question?.description}}</p>
+       
+        </div>
+      </div>
+
+  </ng-template>
+
+<form [formGroup]='answers'>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Your Answer:</label><br><br>
+        <textarea class="form-control" id="exampleFormControlTextarea" rows="3" formControlName="ans"></textarea>
+  <span *ngIf="ans && ans.touched && ans.invalid">*Please enter your answers</span>
+
+    </div>
+   <br>
+    <button type="submit" class="btn btn1 btn-primary" style="margin-left: 180px;" (click)="giveAns(answers.value)">Add Question</button>
+
+</form>
