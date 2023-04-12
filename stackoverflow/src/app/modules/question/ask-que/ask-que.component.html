@@ -1,0 +1,26 @@
+<form [formGroup]='askquestion'>
+
+    <div class="mb-3">
+        <label  class="form-label">title</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="title">
+       <span *ngIf="title && title.touched && title.invalid">*Please enter your title</span>
+
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">What Are the details of Your problem:</label><br><br>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"></textarea>
+  <span *ngIf="description && description.touched && description.invalid">*Please enter your description at least 20 words</span>
+
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">Tag</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="tag">
+       <span *ngIf="tag && tag.touched && tag.invalid">*Please enter your question Tag</span>
+
+    </div><br>
+
+    
+    <button type="submit" class="btn btn1 btn-primary" style="margin-left: 1000px;" (click)="onSubmit(askquestion.value)">Add Question</button>
+
+</form>

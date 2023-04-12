@@ -1,0 +1,40 @@
+{
+  "registration": [
+    {
+      "id": 1,
+      "username": "rk",
+      "name": "ronak",
+      "email": "ronak@gmail.com",
+      "password": "123123123"
+    },
+    {
+      "username": "test",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123123123",
+      "id": 2
+    }
+  ],
+  "question": [
+    {
+      "userid": 2,
+      "title": "what is angular",
+      "description": "how angular work and ",
+      "tag": "angular",
+      "votes": 0,
+      "view": 0,
+      "answer": [],
+      "id": 1
+    },
+    {
+      "userid": 2,
+      "title": "what is javascript",
+      "description": "what is javascript function",
+      "tag": "javascript",
+      "votes": 0,
+      "view": 0,
+      "answer": [],
+      "id": 2
+    }
+  ]
+}

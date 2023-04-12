@@ -1,0 +1,28 @@
+
+<div class="justify-content-end" >
+<h2>All Questions</h2>
+    <a routerLink="/question/askQuestion">
+<button type="submit" class="btn btn1 btn-primary" style="margin-left: 1000px;">Ask Question</button>
+</a>
+</div>
+
+
+<div  *ngFor=" let question of allQuestion">
+
+<div class="card" routerLink="/question/question-details/{{question.id}}">
+    <h3 class="card-header">{{question.tag}}</h3>
+    <div class="d-flex">    
+        <div>
+view:{{question.view}} <br>
+answer: {{question.answer.length}} <br>
+votes: {{question.votes}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{question.title}}</h5>
+      <p class="card-text">{{question.description}}</p>
+    </div>
+</div>
+
+  </div>
+
+</div>
