@@ -1,0 +1,35 @@
+<div class=" d-flex justify-content-center">
+    <form [formGroup]='registration'>
+
+
+<div class="container">
+<div class="mb-3">
+  <label  class="form-label">username :-</label>
+  <input type="text" class="form-control" formControlName="username">
+  <span *ngIf="username && username.touched && username.invalid">*Please enter your username</span>
+</div>
+<div class="mb-3">
+  <label class="form-label">Name :-</label>
+  <input type="text" class="form-control" formControlName="name">
+  <span *ngIf="name && name.touched && name.invalid">*Please enter your name</span>
+</div>
+</div>
+
+<div class="container">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email :-</label>
+      <input type="email" class="form-control" formControlName="email">
+  <span *ngIf="email && email.touched && email.invalid">*Please enter your email</span>
+
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">password :-</label>
+      <input type="password" class="form-control" formControlName="password">
+      <span *ngIf="password && password.touched && password.invalid">*Please enter your password</span>
+
+    </div>
+    </div>  
+              <button type="submit" class="btn btn1 btn-primary" (click)="onSave(registration.value)" >Save</button>
+        </form>
+
+</div>

@@ -1,0 +1,23 @@
+<div class=" d-flex justify-content-center">
+    <form [formGroup]='login'>
+
+
+<div class="container">
+<div class="mb-3">
+  <label  class="form-label">username :-</label>
+  <input type="text" class="form-control" formControlName="username">
+  <span *ngIf="username && username.touched && username.invalid">*Please enter your username</span>
+</div>
+</div>
+
+<div class="container">
+    <div class="mb-3">
+      <label  class="form-label">password :-</label>
+      <input type="password" class="form-control" formControlName="password">
+      <span *ngIf="password && password.touched && password.invalid">*Please enter your password</span>
+    </div>
+    </div>  
+              <button type="submit" class="btn btn1 btn-primary" (click)="onSave(login.value)" >Save</button>
+        </form>
+
+</div>
