@@ -36,22 +36,24 @@ answer=environment.answer
     }
   }
 
+  
+
   postAnswer(Id: number,data:any){
     try {
-          return this.http.get(this.baseurl+this.question +"/"+Id).pipe(
-            mergeMap((customer: any) => {
-              const currentItemArray = customer.answers;
-              currentItemArray.push(data);
-    
-              return this.http.patch(this.baseurl+this.question+"/"+Id, {
-                answers: currentItemArray
-              });
-            })
-          );
+      return this.http.get(this.baseurl+this.question+"/"+Id).pipe(
+        mergeMap((customer: any) => {
+          const currentItemArray = customer.answers || []; // add a check for undefined
+          currentItemArray.push(data);
+  
+          return this.http.patch(this.baseurl+this.question+"/"+Id, {
+            answers: currentItemArray
+          });
+        })
+      );
     } catch (error:any) {
       return throwError(() => new Error(error))
     }
-
   }
+  
 
 }
